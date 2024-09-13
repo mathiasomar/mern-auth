@@ -1,4 +1,9 @@
 const express = require('express')
+require('dotenv').config()
+const connectDB = require('./db')
+
+connectDB(process.env.MONGO_URI)
+
 const app = express()
 const port = 3000
 
