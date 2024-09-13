@@ -3,6 +3,7 @@ require('dotenv').config()
 const cors = require('cors')
 const connectDB = require('./db')
 const userRoutes = require('./routes/userRoute')
+const authRoutes = require('./routes/authRoute')
 
 connectDB(process.env.MONGO_URI)
 
@@ -15,6 +16,7 @@ app.use(express.json())
 
 // ROUTES
 app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => console.log(`Server running on port ${port}!`))
